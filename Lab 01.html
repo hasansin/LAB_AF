@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // question 01
+    var print =  function ()
+    {
+        console.log("Hello World");
+    }
+
+    //print();
+
+    function my_function(n)
+    {
+        return n;
+
+    }
+    my_function(print());
+
+
+    //question 02
+    let user ={
+        name:"nanduni",
+        age : 25,
+
+        printDetails : function (){
+            console.log("\nUser details"+ "\nName: "+this.name +"\nAge: "+this.age);
+        }
+
+    }
+
+    user.printDetails();
+
+    //console.log(user.printDetails())
+
+    ////question 03
+    //a
+    let vehicleName = 'hi';
+    //b
+    function printVehicleName(name)
+    {
+        this.vehicleName =name;
+        console.log("Name of the vehicle:" +this.vehicleName);
+    }
+
+    printVehicleName("New Car");
+
+    ////c
+    var Vehicle ={
+        vehicleName : "Toyota",
+        getVehicleName : function () {
+
+            console.log("vehicle name is"+ vehicleName);
+        }
+    }
+
+
+    Vehicle.getVehicleName();
+
+
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(json => console.log(json))
+
+</script>
+
+</body>
+</html>

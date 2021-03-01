@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function lb2(callback) {
+
+        let name = 0;
+        setTimeout(function()
+        {
+
+            name = 10;
+            callback(name);
+        }, 1000) ;
+
+        return name;
+    }
+
+    console.log(lb2(function (value){
+
+        console.log("Callback function :"+value);
+
+    }));
+
+
+    function lb(){
+        let value =0;
+
+        return  new  Promise((resolve, reject)=>{
+
+            setTimeout( function () {
+                value = 10;
+                resolve("HI "+value);},1000)
+        })
+    }
+
+    lb().then(function (v)
+    {
+        console.log("promise "+v);
+    });
+
+    function  Vehicle (type){
+
+        this.type = type;
+        Vehicle.VehicleCount++;
+    }
+
+    Vehicle.prototype.print=  function () {
+
+        console.log("Vehicle is driving");
+    }
+
+    Vehicle.VehicleCount = 0;
+
+    const  Bus  = new Vehicle("Toyota");
+
+    console.log( Vehicle.VehicleCount);
+    Bus.print();
+
+
+
+    function  Car(type) {
+        Vehicle.call(this,type);
+    }
+
+    Car.prototype = Object.create(Vehicle.prototype);
+    Car.prototype.constructor = Car;
+
+
+</script>
+
+
+</body>
+</html>
