@@ -1,0 +1,44 @@
+
+
+use lab3
+
+db.students.insertOne({
+"name": "John",
+"dateOfBirth": "1990-01-01T00:00:00Z",
+"subjects": ["Application frameworks", "Computerarchitecture"]
+})
+
+db.students.insertOne({
+"name": "Smith",
+"dateOfBirth": "1990-01-15T00:00:00Z",
+"subjects": ["Application frameworks", "Computer architecture"],
+"isActive": true
+})
+
+db.students.insertOne({
+"name": "Jane",
+"dateOfBirth": "1990-02-15T00:00:00Z",
+"subjects": ["Application frameworks", "Computer architecture"],
+"isActive": false
+})
+
+
+
+db.students.find({"name": "John"});
+
+db.students.find({"_id" : ObjectId("6043ae77d0e7a3f6a0ea5c4f")});
+
+db.students.update({"name": "John"},{$addToSet:{"subjects":["Distributed Computing"]}})
+
+
+db.students.updateOne({"name": "Smith",$set:{"isActive":true}})
+
+
+db.students.find({"name": "Smith"});
+
+db.students.update({"name":"John"},{$set:{"isActive":false}})
+
+db.students.remove({"name":"John"})
+
+
+
